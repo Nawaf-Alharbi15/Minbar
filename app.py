@@ -1,6 +1,6 @@
 import streamlit as st
-from Minbar.models import LessonManager, User
-from Minbar.data_loader import load_initial_lessons
+from models import LessonManager, User
+from data_loader import load_initial_lessons
 
 # 1. Setup Data (The Data Lead's job)
 # Creating sample lessons to satisfy the "browse lessons" requirement [cite: 7]

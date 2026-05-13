@@ -1,6 +1,6 @@
-# Minbar
+# Religious Lessons Platform
 
-Is a web-based platform for browsing, searching, and viewing religious lessons. Users can filter lessons by topic or scholar, search by keywords, and mark lessons as favorites. Each lesson includes a title, scholar, topic, level, and an embedded YouTube video. The interface is built with Streamlit and features a modern, user-friendly layout.
+This project is a web-based platform for browsing, searching, and viewing religious lessons. Users can filter lessons by topic or scholar, search by keywords, and mark lessons as favorites. Each lesson includes a title, scholar, topic, level, and an embedded YouTube video. The interface is built with Streamlit and features a modern, user-friendly layout.
 
 ## Features
 - Browse lessons in a grid layout with thumbnails
@@ -8,18 +8,6 @@ Is a web-based platform for browsing, searching, and viewing religious lessons. 
 - Search lessons by title
 - Mark and view favorite lessons
 - View lesson details with a larger video player
-
-## How to clone repository
-1.Install Git
-```bash
-winget install --id Git.Git -e --source winget
-```
-
-2.Clone
-```bash
-git clone https://github.com/Nawaf-Alharbi15/Minbar
-```
-
 
 ## How to Run
 1. Make sure you have Python 3.8+ installed.

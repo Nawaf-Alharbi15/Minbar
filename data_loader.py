@@ -1,4 +1,4 @@
-from Minbar.models import Lesson
+from models import Lesson
 
 def load_initial_lessons():
     return [
