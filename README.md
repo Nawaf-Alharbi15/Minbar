@@ -9,6 +9,13 @@ Is a web-based platform for browsing, searching, and viewing religious lessons. 
 - Mark and view favorite lessons
 - View lesson details with a larger video player
 
+## How to clone repository
+clone
+```bash
+git clone https://github.com/Nawaf-Alharbi15/Minbar
+```
+
+
 ## How to Run
 1. Make sure you have Python 3.8+ installed.
 2. Install dependencies:
