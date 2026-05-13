@@ -10,23 +10,35 @@ class Lesson:
     """
     Represents a single religious lesson or lecture.
     """
-    def __init__(self, lesson_id: str, title: str, topic: str, scholar: str, youtube_url: str, level: str):
+    def __init__(self, lesson_id: str, title_ar: str, title_en: str, topic_ar: str, topic_en: str, scholar_ar: str, scholar_en: str, youtube_url: str, level_ar: str, level_en: str):
         """
         Initialize a Lesson instance.
         Args:
             lesson_id (str): Unique identifier for the lesson.
-            title (str): The title of the lesson.
-            topic (str): The category (e.g., Fiqh, Aqeedah, Seerah).
-            scholar (str): The name of the trusted source/speaker.
+            title_ar (str): The Arabic title.
+            title_en (str): The English title.
+            topic_ar (str): The Arabic category.
+            topic_en (str): The English category.
+            scholar_ar (str): The Arabic scholar name.
+            scholar_en (str): The English scholar name.
             youtube_url (str): The link to the embedded video.
-            level (str): Learning level ('Beginner' or 'Intermediate').
+            level_ar (str): Arabic learning level.
+            level_en (str): English learning level.
         """
         self.lesson_id = lesson_id
-        self.title = title
-        self.topic = topic
-        self.scholar = scholar
+        self.title_ar = title_ar
+        self.title_en = title_en
+        self.topic_ar = topic_ar
+        self.topic_en = topic_en
+        self.scholar_ar = scholar_ar
+        self.scholar_en = scholar_en
         self.youtube_url = youtube_url
-        self.level = level
+        self.level_ar = level_ar
+        self.level_en = level_en
+
+    def get_attr(self, attr_name: str, lang: str) -> str:
+        """Helper to get bilingual attribute based on language 'ar' or 'en'."""
+        return getattr(self, f"{attr_name}_{lang}", "")
 
     def get_info(self) -> Dict[str, str]:
         """
@@ -34,11 +46,15 @@ class Lesson:
         """
         return {
             'lesson_id': self.lesson_id,
-            'title': self.title,
-            'topic': self.topic,
-            'scholar': self.scholar,
+            'title_ar': self.title_ar,
+            'title_en': self.title_en,
+            'topic_ar': self.topic_ar,
+            'topic_en': self.topic_en,
+            'scholar_ar': self.scholar_ar,
+            'scholar_en': self.scholar_en,
             'youtube_url': self.youtube_url,
-            'level': self.level
+            'level_ar': self.level_ar,
+            'level_en': self.level_en
         }
 
     def render_video(self) -> None:
@@ -101,7 +117,7 @@ class LessonManager:
         Returns:
             List[Lesson]: List of lessons matching the topic.
         """
-        return [lesson for lesson in self.all_lessons if lesson.topic.lower() == topic_name.lower()]
+        return [lesson for lesson in self.all_lessons if lesson.topic_ar.lower() == topic_name.lower() or lesson.topic_en.lower() == topic_name.lower()]
 
     def filter_by_scholar(self, scholar_name: str) -> List[Lesson]:
         """
@@ -111,7 +127,7 @@ class LessonManager:
         Returns:
             List[Lesson]: List of lessons matching the scholar.
         """
-        return [lesson for lesson in self.all_lessons if lesson.scholar.lower() == scholar_name.lower()]
+        return [lesson for lesson in self.all_lessons if lesson.scholar_ar.lower() == scholar_name.lower() or lesson.scholar_en.lower() == scholar_name.lower()]
 
     def get_recommendations(self, user_obj: User) -> List[Lesson]:
         """
@@ -121,4 +137,4 @@ class LessonManager:
         Returns:
             List[Lesson]: List of recommended lessons.
         """
-        return [lesson for lesson in self.all_lessons if lesson.level.lower() == user_obj.preferred_level.lower()]
+        return [lesson for lesson in self.all_lessons if lesson.level_ar.lower() == user_obj.preferred_level.lower() or lesson.level_en.lower() == user_obj.preferred_level.lower()]
