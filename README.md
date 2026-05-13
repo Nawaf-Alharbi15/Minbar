@@ -10,7 +10,12 @@ Is a web-based platform for browsing, searching, and viewing religious lessons. 
 - View lesson details with a larger video player
 
 ## How to clone repository
-clone
+1.Install Git
+```bash
+winget install --id Git.Git -e --source winget
+```
+
+2.Clone
 ```bash
 git clone https://github.com/Nawaf-Alharbi15/Minbar
 ```
