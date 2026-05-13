@@ -25,10 +25,14 @@ git clone https://github.com/Nawaf-Alharbi15/Minbar
 1. Make sure you have Python 3.8+ installed.
 2. Install dependencies:
    ```bash
-   pip install streamlit
+   pip install -r requirements.txt
    ```
 3. Run the app:
    ```bash
    streamlit run app.py
    ```
-4. Open the provided local URL in your browser to use the platform.
+   or
+   ```bash
+   python -m streamlit run app.py
+   ```
+5. Open the provided local URL in your browser to use the platform.
